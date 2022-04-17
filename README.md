@@ -25,14 +25,17 @@ A fim de adentrar ao universo do IoT, uma equipe de graduandos em Engenharia da 
 <div id="mapeamento">
 	<h1> Mapeamento de Memória </h1>
 			<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+		A fim de obter o endereço de memória virtual que permitirá acessar os periféricos da raspberry - nesse contexto a UART - , é realizado o mapeamento de memória. Sabendo que no linux tudo é considerado um arquivo, primeiramente realiza-se uma chamada ao sistema (syscall), solicitando que o sistema operacional utilize o caminho "/dev/mem" para abrir o arquivo que fornece o acesso à memória. Posteriormente o retorno do processo contendo as páginas e endereçamentos é salvo no registrador r0 e movido para r4.
+Em seguida, carregamos a razão entre o endereço de memória física da GPIO e o número de páginas [Coloca a operação e o valor aqui] no registrador r5 e movemos para r1 o valor equivalente ao tamanho da memória que será usado (nesse contexto, 4096). Subsequentemente, realiza-se as operações para configurar as opções de proteção da memória.
 	</p>
-				<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	</p>
-				<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	</p>
+	<p> Para isso, configuramos, respectivamente:</p>
+	<ul>
+				<li>A permissão para os modos de leitura e escrita,</li>
+				<li>Compartilhar o mapeamento com outras partes,</li>
+<li>Permite-se que o sistema operacional escolha o endereço virtual </li>
+<li>Faz uma chamada ao sistema requisitando o serviço mmap2 do Linux, para realizar as configurações implementadas</li>
+				<li>Move-se para r8 o endereço de memória virtual retornado</li>
+	</ul>
 </div>
 
 
