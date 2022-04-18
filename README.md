@@ -250,15 +250,30 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 <div id="executar">
 	<h1>Como executar</h1>
 		<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	</p>
+		Os arquivos base do códgio assembly encontra-se no caminho raíz desse diretório (/pbl-sistemas-digitais/) e são denominados:
+		</p>
+		<ul>
+			<li>uartConfig.s</li>
+			<p>Para a configuração da UART</p>
+		</ul>
+		<ul>
+			<li>uartDateL.s</li>
+			<p>Arquivo principal</p>
+		</ul>
+		<ul>
+			<li>uartDateO.s</li>
+			<p>Para o envio e recebimento dos dados</p>
+		</ul>
 		<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	</p>
-		<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	</p>
-		<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	</p>
+			Para executar o produto desenvolvido, utiliza-se o arquivo makefile. 
+			Para isso, dentro de um terminal linux, abra o diretório que contém os arquivos bases mencionados anteriormente e execute os seguinte comando:
+		<ul>
+			<li>make all</li>
+			<p>Cria o executável</p>
+		</ul>
+		<ul>
+			<li>sudo ./UartDateL</li>
+			<p>Executa o programa</p>
+		</ul>
+		</p>
 </div>
