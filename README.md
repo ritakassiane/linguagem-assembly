@@ -67,7 +67,7 @@ Foi utilizado os bits entre 7-0 para acessar o último dado enviado e o dado do 
 	<ul>
 		<li>UART_LCRH (offset: #2c)</li>
 		<p>
-É o registrador de controle de linha. É usado para configurar parâmetros de comunicação. Este registro não deve ser alterado até que o UART seja desabilitado escrevendo zero no bit 0 de UART_CR, e o sinalizador BUSY em UART_FR é limpo.
+É o registrador Line Control. É usado para configurar parâmetros de comunicação e não deve ser alterado até que a UART seja desabilitada escrevendo zero no bit 0 de UART_CR, e o sinalizador BUSY em UART_FR deve estar limpo para indicar que não enta oculpado.
 		</p>
 	</ul>
 	<ul>
