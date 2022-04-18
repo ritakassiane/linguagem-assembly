@@ -137,43 +137,115 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 	<h1>Testes</h1>
 	<div id="image01" style="display: inline_block" align="center">
 			<img src="/MAP001.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010
+		8 Bts
+		2 SB
+		Paridade: Par
+		</p>
 	</div>
 		<div id="image02" style="display: inline_block" align="center">
 			<img src="/MAP002.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010;
+		8 bts;
+		2 SB
+		Paridade: Par;
+		Parity Disable;
+
+		</p>
 	</div>
 		<div id="image03" style="display: inline_block" align="center">
 			<img src="/MAP003.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010;
+		8 bts;
+		2 SB;
+		Paridade: Impar		
+		</p>
 	</div>
 	<div id="image04" style="display: inline_block" align="center">
 			<img src="/MAP004.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010;
+		8 bts;
+		1 SB;
+		Paridade: Par		
+		</p>
 	</div>
 	<div id="image05" style="display: inline_block" align="center">
 			<img src="/MAP005.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010;
+		7 bts;
+		1 SB;
+		Paridade: Par
+		</p>
 	</div>
 		<div id="image06" style="display: inline_block" align="center">
 			<img src="/MAP006.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010;
+		6 bts;
+		1 SB;
+		Paridade: Par	
+		</p>
 	</div>
 		<div id="image08" style="display: inline_block" align="center">
 			<img src="/MAP008.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 00110101
+		8 bts;
+		2 SB;
+		Paridade: Par	
+		</p>
 	</div>
 		<div id="image09" style="display: inline_block" align="center">
 			<img src="/MAP009.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 01110101
+		8 bts;
+		2 SB;
+		Paridade: Par	
+
+		</p>
 	</div>
 		<div id="image10" style="display: inline_block" align="center">
 			<img src="/MAP0010.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010
+		8 bts;
+		2 SB;
+		Baud Rate: 14400 Hz
+		I = 212
+		F = 63
+		Paridade: Par	
+		</p>
 	</div>
 		<div id="image11" style="display: inline_block" align="center">
 			<img src="/MAP011.jpg"/><br>
-		<p>Legenda</p>
+		<p>
+		Dado: 11001010
+		8 bts;
+		2 SB;
+		Baud Rate: 76800 Hz
+		I = 40
+		F = 0
+		Paridade: Par	
+		</p>
+	</div>
+	</div>
+		<div id="image11" style="display: inline_block" align="center">
+			<img src="/MAP012.jpg"/><br>
+		<p>
+		Dado: 11001010
+		8 bts;
+		2 SB;
+		Baud Rate: 38400 Hz
+		I = 79
+		F = 63
+		Paridade: Par	
+		</p>
 	</div>
 </div>
 
