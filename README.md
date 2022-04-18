@@ -134,7 +134,10 @@ Posteriormente, deve-se ativar o FIFO. Para isso, deve-se adicionar o valor lóg
 
 <div id="enviando">
 	<h1> Enviando e Recebendo dados </h1>
-
+	<p>
+	Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
+	Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
+	</p>
 </div>
 
 <div id="teste">
