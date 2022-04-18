@@ -18,11 +18,6 @@ A fim de adentrar ao universo do IoT, uma equipe de graduandos em Engenharia da 
 	<a href="#executar"> Como executar </a>
 </div>
 
-<div id="diagrama">
-	Imagem do diagrama aqui
-</div>
-
-
 <div id="mapeamento">
 	<h1> Mapeamento de Memória </h1>
 			<p>
