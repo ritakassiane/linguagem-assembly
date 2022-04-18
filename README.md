@@ -249,15 +249,15 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		</p>
 		<ul>
 			<li>uartConfig.s</li>
-			<p>Para a configuração da UART</p>
+			<p>Arquivo principal o qual é usado para a configuração da UART</p>
 		</ul>
 		<ul>
 			<li>uartDateL.s</li>
-			<p>Arquivo principal</p>
+			<p>Arquivo de envio de dado e teste de loopback</p>
 		</ul>
 		<ul>
 			<li>uartDateO.s</li>
-			<p>Para o envio e recebimento dos dados</p>
+			<p>Arquivo que implementa um loop de envio de dados para serem visualizados via osciloscópio</p>
 		</ul>
 		<p>
 			Para executar o produto desenvolvido, utiliza-se o arquivo makefile. 
