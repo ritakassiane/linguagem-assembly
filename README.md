@@ -135,6 +135,46 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 
 <div id="teste">
 	<h1>Testes</h1>
+	<div id="image01" style="display: inline_block" align="center">
+			<img src="/MAP001.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+		<div id="image02" style="display: inline_block" align="center">
+			<img src="/MAP002.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+		<div id="image03" style="display: inline_block" align="center">
+			<img src="/MAP003.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+	<div id="image04" style="display: inline_block" align="center">
+			<img src="/MAP004.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+	<div id="image05" style="display: inline_block" align="center">
+			<img src="/MAP005.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+		<div id="image06" style="display: inline_block" align="center">
+			<img src="/MAP006.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+		<div id="image08" style="display: inline_block" align="center">
+			<img src="/MAP008.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+		<div id="image09" style="display: inline_block" align="center">
+			<img src="/MAP009.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+		<div id="image10" style="display: inline_block" align="center">
+			<img src="/MAP0010.jpg"/><br>
+		<p>Legenda</p>
+	</div>
+		<div id="image11" style="display: inline_block" align="center">
+			<img src="/MAP011.jpg"/><br>
+		<p>Legenda</p>
+	</div>
 </div>
 
 <div id="executar">
