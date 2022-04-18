@@ -42,10 +42,66 @@ Em seguida, carregamos a razão entre o endereço de memória física da GPIO e 
 <div id="configuracao">
 	<h1> Configuração </h1>
 			<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+Agora que já obteve-se o endereço da memória é necessário acessar a localização da UART, as quais serão necessárias para configurar e enviar dados. Consultando a documentação do BCM2835 temos a  informação que as linhas de transmissão e recepção podem ser roteadas através dos pinos 14 e 15 da GPIO, respectivamente. Além disso, indica-se que a UART tem 18 registradores, começando em seu endereço base de 2E2010016. No entanto, para a solução desse protótipo, utilizaremos apenas 6 registradores, sendo esses:
 	</p>
-				<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	<ul>
+		<li>UART DATA REGISTER(offset: #0)</li>
+		<p>
+		Usado para enviar e receber dados serialmente, ou seja, um byte de cada vez. Escrever neste registrador é adicionar um byte ao FIFO de transmissão. 
+Outro fato acerca deste registrador é que, embora ele seja seja de 32 bits, apenas os 8 bits menos significativos são usados na transmissão, e 12 bits menos significativos são usados para recepção. Se o FIFO estiver vazio, a UART começará a transmitir o byte imediatamente. Se ele estiver cheio, o último byte no O FIFO será substituído pelo novo byte que é gravado no Data Register. 
+Quando esse registrador é lido, ele retorna o byte no topo do FIFO de recebimento, junto com quatro bits de status adicionais para indicar se algum erro foi encontrado. 
+Foi utilizado os bits entre 7-0 para acessar o último dado enviado e o dado do byte recebido.
+
+		</p>
+	</ul>
+	<ul>
+		<li>UART_FR (offset: #18)</li>
+		<p>
+	O UART Flag Register pode ser lido para determinar o status da UART. Quando vários bytes precisam ser enviados, o sinalizador TXFF deve ser verificado para garantir que o FIFO de transmissão não está cheio antes de cada byte ser escrito no registrador de dados. Ao receber dados, o bit RXFE pode ser usado para determinar se há ou não mais dados a serem lidos do FIFO. 
+		</p>
+	</ul>
+	<ul>
+		<li>UART_IBRD e UART_FRD (offset: #24 e #28)</li>
+		<p>
+	UART_FBRD é a parte fracionária do valor do Baud Rate Divisor e UART_IBRD é a parte inteira. 
+		</p>
+	</ul>
+	<ul>
+		<li>UART_LCRH (offset: #2c)</li>
+		<p>
+É o registrador de controle de linha. É usado para configurar parâmetros de comunicação. Este registro não deve ser alterado até que o UART seja desabilitado escrevendo zero no bit 0 de UART_CR, e o sinalizador BUSY em UART_FR é limpo.
+		</p>
+	</ul>
+	<ul>
+		<li>UART_CR (offset: #30)
+</li>
+		<p>
+		A UART Control Register é usada para configurar, habilitar e desabilitar o UART. Para habilitar a transmissão, o bit TXE e o bit UARTEN devem ser configurados para 1. Para habilitar a recepção, o bit RXE e o bit UARTEN devem ser configurados para 1. 
+		</p>
+	</ul>
+	<p>
+Em geral, os seguintes passos devem ser usados para configurar ou reconfigurar o UART: <br>
+1. Desativar o UART.
+Move-se o valor 0 para o registrador 1. Posteriormente realiza um Store Register (str) para arrastar o valor armazenado em R1 para a localização da UART Control register para que seja possível desabilitar toda UART.
+
+2. Aguardar o final da transmissão ou recepção do caractere atual.
+
+Um loop é criado para aguardar a UART finalizar a transmissão de dados atual, caso exista.
+
+3. Esvaziar o FIFO de transmissão definindo o bit FEN como 0 no Line Control Register.
+4. Configurar novamente o Control Register.
+Número de bits do dado, stop bits e paridade
+Carrega-se em R1 os dados do Line Control Register. Posteriormente, move-se uma sequência de bits para o registrador 0, onde as posições com bits 1 serão as posições as quais serão alteradas nesse registrador. 
+O mnemônico bic(Bit Clear) é utilizado para realizar uma operação AND nos bits de R1 com os complementos dos bits correspondentes no valor R0. Com isso configura-se que o dado enviado deverá ter 7 bits, 2 Stop Bits, será um dado com paridade a qual deve ser ímpar. 
+Baudrate
+Encontra-se o valor do BAUDDIV (Divisor de Baud Rate) através da expressão:
+Frequência de Clock da UART/(16*Baud Rate desejado). Posteriormente, armazena-se o valor inteiro desse resultado no UART_IBRD e a parte fracionária em UART_FBRD. Nesse projeto esse cálculo é aplicado da seguinte maneira:
+BAUDDIV = (3Mhz/ (1200*16)) = 156,25 	
+
+5. Ativar o UART e FIFO
+Para ativar a UART, é adicionado 1 nos bits UARTEN (bit 0) - responsável por ativar a UART - e TXE (bit 8) - responsável por ativar a transmissão de dados - pertencentes ao registrador UART Control Register.
+Posteriormente, deve-se ativar o FIFO. Para isso, deve-se adicionar o valor lógico 1 no bit denominado FEN do registrador Line Control Register. 
+
 	</p>
 </div>
 
