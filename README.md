@@ -22,7 +22,7 @@ A fim de adentrar ao universo do IoT, uma equipe de graduandos em Engenharia da 
 <div id="diagrama">
 	<h1> Diagrama </h1>
 		<div id="image01" style="display: inline_block" align="center">
-		<img src="/diagrama.png"/>
+		<img src="/diagrama-do-sis.png"/>
 		<p>
 			Diagrama do sistema desenvolvido
 			</p>
