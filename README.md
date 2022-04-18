@@ -51,8 +51,6 @@ Agora que já obteve-se o endereço da memória é necessário acessar a localiz
 Outro fato acerca deste registrador é que, embora ele seja seja de 32 bits, apenas os 8 bits menos significativos são usados na transmissão, e 12 bits menos significativos são usados para recepção. Se o FIFO estiver vazio, a UART começará a transmitir o byte imediatamente. Se ele estiver cheio, o último byte no O FIFO será substituído pelo novo byte que é gravado no Data Register. 
 Quando esse registrador é lido, ele retorna o byte no topo do FIFO de recebimento, junto com quatro bits de status adicionais para indicar se algum erro foi encontrado. 
 Foi utilizado os bits entre 7-0 para acessar o último dado enviado e o dado do byte recebido.
-
-		</p>
 	</ul>
 	<ul>
 		<li>UART_FR (offset: #18)</li>
@@ -81,35 +79,62 @@ Foi utilizado os bits entre 7-0 para acessar o último dado enviado e o dado do 
 	</ul>
 	<p>
 Em geral, os seguintes passos devem ser usados para configurar ou reconfigurar o UART: <br>
-1. Desativar o UART.
+	<ul>
+		<li>Desativar o UART</li>
+		<p>
 Move-se o valor 0 para o registrador 1. Posteriormente realiza um Store Register (str) para arrastar o valor armazenado em R1 para a localização da UART Control register para que seja possível desabilitar toda UART.
-
-2. Aguardar o final da transmissão ou recepção do caractere atual.
-
+	</ul>
+	<ul>
+		<li>Aguardar o final da transmissão ou recepção do caractere atual</li>
+		<p>
 Um loop é criado para aguardar a UART finalizar a transmissão de dados atual, caso exista.
-
-3. Esvaziar o FIFO de transmissão definindo o bit FEN como 0 no Line Control Register.
-4. Configurar novamente o Control Register.
-Número de bits do dado, stop bits e paridade
-Carrega-se em R1 os dados do Line Control Register. Posteriormente, move-se uma sequência de bits para o registrador 0, onde as posições com bits 1 serão as posições as quais serão alteradas nesse registrador. 
+		</p>
+	</ul>
+	<ul>
+		<li>Esvaziar o FIFO de transmissão definindo o bit FEN como 0 no Line Control Register.</li>
+	</ul>
+	<ul>
+		<li>Configurar novamente o Control Register.</li>
+		<ul>
+			<li>
+				Número de bits do dado, stop bits e paridade
+			</li>
+			<p>
+				Carrega-se em R1 os dados do Line Control Register. Posteriormente, move-se uma sequência de bits para o registrador 0, onde as posições com bits 1 serão as posições as quais serão alteradas nesse registrador. 
 O mnemônico bic(Bit Clear) é utilizado para realizar uma operação AND nos bits de R1 com os complementos dos bits correspondentes no valor R0. Com isso configura-se que o dado enviado deverá ter 7 bits, 2 Stop Bits, será um dado com paridade a qual deve ser ímpar. 
-Baudrate
+			</p>
+		</ul>
+		<ul>
+			<li>
+				Baudrate
+			</li>
+			<p>
 Encontra-se o valor do BAUDDIV (Divisor de Baud Rate) através da expressão:
 Frequência de Clock da UART/(16*Baud Rate desejado). Posteriormente, armazena-se o valor inteiro desse resultado no UART_IBRD e a parte fracionária em UART_FBRD. Nesse projeto esse cálculo é aplicado da seguinte maneira:
 BAUDDIV = (3Mhz/ (1200*16)) = 156,25 	
-
-5. Ativar o UART e FIFO
+			</p>
+		</ul>
+	</ul>
+	<ul>
+		<li> Ativar o UART e FIFO</li>
+		<p>
 Para ativar a UART, é adicionado 1 nos bits UARTEN (bit 0) - responsável por ativar a UART - e TXE (bit 8) - responsável por ativar a transmissão de dados - pertencentes ao registrador UART Control Register.
 Posteriormente, deve-se ativar o FIFO. Para isso, deve-se adicionar o valor lógico 1 no bit denominado FEN do registrador Line Control Register. 
+		</p>
+	</ul>
+</div>
+
+<div id="enviando">
+	<h1> Enviando e Recebendo dados </h1>
+			<p>
+Antes de enviar o dado, deve-se verificar se o FIFO está cheio. Para isso utiliza-se o bit denominado TXFF do registrador Flag. Posteriormente, move-se a sequência de bits que deve ser enviada em um registrador e escreve este valor no endereço do registrador UART_DATA. 
+Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Register para verificar se o FIFO está vazio ou não.
 
 	</p>
 </div>
 
-<div id="enviando">
-	<h1> Enviando Dado </h1>
-			<p>
-		Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-	</p>
+<div id="teste">
+	<h1>Testes</h1>
 </div>
 
 <div id="executar">
