@@ -14,6 +14,7 @@ A fim de adentrar ao universo do IoT, uma equipe de graduandos em Engenharia da 
 	<a href="#mapeamento"> Mapeamento de memória </a> |
 	<a href="#configuracao"> Configurando a UART</a> |
 	<a href="#enviando"> Enviando dado</a> |
+	<a href="#teste"> Teste </a> |
 	<a href="#executar"> Como executar </a>
 </div>
 
@@ -144,19 +145,18 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		Paridade: Par
 		</p>
 	</div>
-		<div id="image02" style="display: inline_block" align="center">
-			<img src="/MAP002.jpg"/><br>
+	<div id="image02" style="display: inline_block" align="center">
+		<img src="/MAP002.jpg"/><br>
 		<p>
 		Dado: 11001010;
 		8 bts;
 		2 SB
 		Paridade: Par;
 		Parity Disable;
-
 		</p>
 	</div>
-		<div id="image03" style="display: inline_block" align="center">
-			<img src="/MAP003.jpg"/><br>
+	<div id="image03" style="display: inline_block" align="center">
+		<img src="/MAP003.jpg"/><br>
 		<p>
 		Dado: 11001010;
 		8 bts;
@@ -165,7 +165,7 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		</p>
 	</div>
 	<div id="image04" style="display: inline_block" align="center">
-			<img src="/MAP004.jpg"/><br>
+		<img src="/MAP004.jpg"/><br>
 		<p>
 		Dado: 11001010;
 		8 bts;
@@ -200,18 +200,17 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		Paridade: Par	
 		</p>
 	</div>
-		<div id="image09" style="display: inline_block" align="center">
-			<img src="/MAP009.jpg"/><br>
+	<div id="image09" style="display: inline_block" align="center">
+		<img src="/MAP009.jpg"/><br>
 		<p>
 		Dado: 01110101
 		8 bts;
 		2 SB;
 		Paridade: Par	
-
 		</p>
 	</div>
-		<div id="image10" style="display: inline_block" align="center">
-			<img src="/MAP0010.jpg"/><br>
+	<div id="image10" style="display: inline_block" align="center">
+		<img src="/MAP0010.jpg"/><br>
 		<p>
 		Dado: 11001010
 		8 bts;
@@ -222,8 +221,8 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		Paridade: Par	
 		</p>
 	</div>
-		<div id="image11" style="display: inline_block" align="center">
-			<img src="/MAP011.jpg"/><br>
+	<div id="image11" style="display: inline_block" align="center">
+		<img src="/MAP011.jpg"/><br>
 		<p>
 		Dado: 11001010
 		8 bts;
@@ -234,9 +233,8 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		Paridade: Par	
 		</p>
 	</div>
-	</div>
-		<div id="image11" style="display: inline_block" align="center">
-			<img src="/MAP012.jpg"/><br>
+	<div id="image11" style="display: inline_block" align="center">
+		<img src="/MAP012.jpg"/><br>
 		<p>
 		Dado: 11001010
 		8 bts;
