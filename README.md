@@ -146,7 +146,7 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		</p>
 	</div>
 	<div id="image02" style="display: inline_block" align="center">
-		<img src="/MAP002.jpg"/><br>
+		<img src="/MAP002_1.jpg"/><br>
 		<p>
 		Dado: 11001010;
 		8 bts;
@@ -210,7 +210,7 @@ Para verificar se o dado enviado foi recebido, utiliza-se o bit RXFF do Flag Reg
 		</p>
 	</div>
 	<div id="image10" style="display: inline_block" align="center">
-		<img src="/MAP0010.jpg"/><br>
+		<img src="/MAP010.jpg"/><br>
 		<p>
 		Dado: 11001010
 		8 bts;
