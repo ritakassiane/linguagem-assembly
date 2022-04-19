@@ -256,7 +256,7 @@ Posteriormente, deve-se ativar o FIFO. Para isso, deve-se adicionar o valor lóg
 <div id="executar">
 	<h1>Como executar</h1>
 		<p>
-		Os arquivos base do códgio assembly encontra-se no caminho raíz desse diretório (/pbl-sistemas-digitais/) e são denominados:
+		Os arquivos base do códgio assembly encontra-se no caminho diretório (/pbl-sistemas-digitais/PBL/) e são denominados:
 		</p>
 		<ul>
 			<li>uartConfig.s</li>
@@ -269,6 +269,10 @@ Posteriormente, deve-se ativar o FIFO. Para isso, deve-se adicionar o valor lóg
 		<ul>
 			<li>uartDateO.s</li>
 			<p>Arquivo que implementa um loop de envio de dados para serem visualizados via osciloscópio</p>
+		</ul>
+		<ul>
+			<li>macros.s</li>
+			<p>Arquivo que implementa um macro de impressão na tela (print) para a utilização em outras partes do sistema</p>
 		</ul>
 		<p>
 			Para executar o produto desenvolvido, utiliza-se o arquivo makefile. 
