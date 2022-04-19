@@ -86,7 +86,7 @@ loop:	ldr 	r1, [r8, #UART_FR]		@ Load the data from the Flag Register
 	str 	r1, [r8, #UART_LCRH]		@ Write the value of register 1 in the respective address of the Line Contrl Register
 
 	@ Configuring the Baud Rate
-	@(3Mhz/ (14400*16)) = 212,63		@ Calculate to find the BAUDDIV ( UARTCLK/ (16 x BaudRate)>> 
+	@(50Mhz/ (14400*16)) = 212,63		@ Calculate to find the BAUDDIV ( UARTCLK/ (16 x BaudRate)>> 
 						@ >>Value referring to the BAUDDIV in binary, whose entire part will be saved in the IBRD and the fractional part in the FBRD
 	mov	r0, #156			@ Move the value referring to the integer part to register 0
 	str	r0, [r8, #UART_IBRD]		@ Write the value of register 0 to the Integer Baud Rate Divider
