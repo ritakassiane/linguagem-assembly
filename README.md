@@ -286,10 +286,10 @@ Posteriormente, deve-se ativar o FIFO. Para isso, deve-se adicionar o valor lóg
 <div id="conclusao">
 	<h1>Conclusão</h1>
 	<p>
-	Para atingir o objetivo solicitado neste problema foi necessário entender o conceito de mapemento de memória e o implementar, a fim de obter o endereço de memória virtual e consequentemente conseguir acessar a UART. Posteriormente a isso foi possível configura-la a partir das necessidades apontadas como requisitos dos sistema, e enviar um dado de acordo com o padrão RS232.
+	Para atingir o objetivo solicitado neste problema foi necessário entender o conceito de mapemento de memória e o implementar, a fim de obter o endereço de memória virtual e consequentemente conseguir acessar a UART. Posteriormente a isso foi possível configura-la a partir das necessidades apontadas como requisitos do sistema, e enviar um dado de acordo com o padrão RS232.
 	</p>
 	<p>
-Além disso, o protótipo do sistema auxiliou os graduandos em Engenharia da Computação na solidificação do conhecimento acerca da arquitetura ARM e conceitos base da linguagem Assembly, como: principais mnemônicos, estruturas condicionais e estruturas de repetição.
+Além disso, o protótipo do sistema auxiliou os graduandos em Engenharia da Computação na solidificação do conhecimento a cerca da arquitetura ARM e conceitos base da linguagem Assembly, como: principais mnemônicos, estruturas condicionais e estruturas de repetição.
 	</p>
 	<p>
 O problema solucionado cumpre <strong>todos</strong> os requisitos solicitados, e foi desenvolvido utilizando Raspberry Pi Zero além de ter sido devidamente testado através da verificação do dado enviado utilizando o osciloscópio e teste de loopback.
