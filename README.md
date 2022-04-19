@@ -67,7 +67,7 @@ Foi utilizado os bits entre 7-0 para acessar o último dado enviado e o dado do 
 		</p>
 	</ul>
 	<ul>
-		<li>UART_IBRD e UART_FRD (offset: #24 e #28)</li>
+		<li>UART_IBRD e UART_FRD (offset: #0x24 e #0x28)</li>
 		<p>
 	UART_FBRD é a parte fracionária do valor do Baud Rate Divisor e UART_IBRD é a parte inteira. 
 		</p>
