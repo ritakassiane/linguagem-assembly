@@ -53,7 +53,7 @@ Em seguida, carregamos a razão entre o endereço de memória física da GPIO e 
 Agora que já obteve-se o endereço da memória é necessário acessar a localização da UART, as quais serão necessárias para configurar e enviar dados. Consultando a documentação do BCM2835 temos a  informação que as linhas de transmissão e recepção podem ser roteadas através dos pinos 14 e 15 da GPIO, respectivamente. Além disso, indica-se que a UART tem 18 registradores, começando em seu endereço base de 0x2020100. No entanto, para a solução desse protótipo, utilizaremos apenas 6 registradores, sendo esses:
 	</p>
 	<ul>
-		<li>UART DATA REGISTER(offset: #0x0)</li>
+		<li>UART DATA REGISTER(offset: 0x0)</li>
 		<p>
 		Usado para enviar e receber dados serialmente, ou seja, um byte de cada vez. Escrever neste registrador é adicionar um byte ao FIFO de transmissão. 
 Outro fato acerca deste registrador é que, embora ele seja seja de 32 bits, apenas os 8 bits menos significativos são usados na transmissão, e 12 bits menos significativos são usados para recepção. Se o FIFO estiver vazio, a UART começará a transmitir o byte imediatamente. Se ele estiver cheio, o último byte no O FIFO será substituído pelo novo byte que é gravado no Data Register. 
@@ -61,25 +61,25 @@ Quando esse registrador é lido, ele retorna o byte no topo do FIFO de recebimen
 Foi utilizado os bits entre 7-0 para acessar o último dado enviado e o dado do byte recebido.
 	</ul>
 	<ul>
-		<li>UART_FR (offset: #0x18)</li>
+		<li>UART_FR (offset: 0x18)</li>
 		<p>
 	O UART Flag Register pode ser lido para determinar o status da UART. Quando vários bytes precisam ser enviados, o sinalizador TXFF deve ser verificado para garantir que o FIFO de transmissão não está cheio antes de cada byte ser escrito no registrador de dados. Ao receber dados, o bit RXFE pode ser usado para determinar se há ou não mais dados a serem lidos do FIFO. 
 		</p>
 	</ul>
 	<ul>
-		<li>UART_IBRD e UART_FRD (offset: #0x24 e #0x28)</li>
+		<li>UART_IBRD e UART_FRD (offset: 0x24 e 0x28)</li>
 		<p>
 	UART_FBRD é a parte fracionária do valor do Baud Rate Divisor e UART_IBRD é a parte inteira. 
 		</p>
 	</ul>
 	<ul>
-		<li>UART_LCRH (offset: #0x2c)</li>
+		<li>UART_LCRH (offset: 0x2c)</li>
 		<p>
 É o registrador Line Control. É usado para configurar parâmetros de comunicação e não deve ser alterado até que a UART seja desabilitada escrevendo zero no bit 0 de UART_CR, e o sinalizador BUSY em UART_FR deve estar limpo para indicar que não enta oculpado.
 		</p>
 	</ul>
 	<ul>
-		<li>UART_CR (offset: #0x30)
+		<li>UART_CR (offset: 0x30)
 </li>
 		<p>
 		A UART Control Register é usada para configurar, habilitar e desabilitar o UART. Para habilitar a transmissão, o bit TXE e o bit UARTEN devem ser configurados para 1. Para habilitar a recepção, o bit RXE e o bit UARTEN devem ser configurados para 1. 
